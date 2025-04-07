@@ -1,4 +1,4 @@
-# openapi-client
+# IONOS Reseller API v2 – Python SDK
 API allowing resellers to create and manage contracts
 
 
