@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.pagination_links import PaginationLinks
+from ionos_reseller_api_v2_client.models.pagination_links import PaginationLinks
 
 class TestPaginationLinks(unittest.TestCase):
     """PaginationLinks unit test stubs"""

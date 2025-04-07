@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.user_update_request_resource import UserUpdateRequestResource
+from ionos_reseller_api_v2_client.models.user_update_request_resource import UserUpdateRequestResource
 
 class TestUserUpdateRequestResource(unittest.TestCase):
     """UserUpdateRequestResource unit test stubs"""

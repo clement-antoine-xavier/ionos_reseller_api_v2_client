@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.pagination_links import PaginationLinks
+from ionos_reseller_api_v2_client.models.pagination_links import PaginationLinks
 
 # TODO update the JSON string below
 json = "{}"

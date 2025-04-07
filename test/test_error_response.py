@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.error_response import ErrorResponse
+from ionos_reseller_api_v2_client.models.error_response import ErrorResponse
 
 class TestErrorResponse(unittest.TestCase):
     """ErrorResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestErrorResponse(unittest.TestCase):
             return ErrorResponse(
                 http_status = 400,
                 messages = [
-                    openapi_client.models.error_message.ErrorMessage(
+                    ionos_reseller_api_v2_client.models.error_message.ErrorMessage(
                         error_code = '303', 
                         message = '', )
                     ]

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.contract_response_resource import ContractResponseResource
+from ionos_reseller_api_v2_client.models.contract_response_resource import ContractResponseResource
 
 # TODO update the JSON string below
 json = "{}"

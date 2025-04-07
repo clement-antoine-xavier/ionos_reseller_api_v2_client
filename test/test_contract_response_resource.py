@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.contract_response_resource import ContractResponseResource
+from ionos_reseller_api_v2_client.models.contract_response_resource import ContractResponseResource
 
 class TestContractResponseResource(unittest.TestCase):
     """ContractResponseResource unit test stubs"""
@@ -40,7 +40,7 @@ class TestContractResponseResource(unittest.TestCase):
                 name = '',
                 reseller_reference = '',
                 status = '',
-                resource_limits = openapi_client.models.resource_limits.ResourceLimits(
+                resource_limits = ionos_reseller_api_v2_client.models.resource_limits.ResourceLimits(
                     ram_server_max = 56, 
                     cpu_server_max = 56, 
                     hdd_volume_max_size = 56, 

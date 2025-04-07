@@ -178,7 +178,7 @@ class Configuration:
 
     You can programmatically set the cookie:
 
-conf = openapi_client.Configuration(
+conf = ionos_reseller_api_v2_client.Configuration(
     api_key={'cookieAuth': 'abc123'}
     api_key_prefix={'cookieAuth': 'JSESSIONID'}
 )
@@ -196,7 +196,7 @@ conf = openapi_client.Configuration(
 
     Configure API client with HTTP basic authentication:
 
-conf = openapi_client.Configuration(
+conf = ionos_reseller_api_v2_client.Configuration(
     username='the-user',
     password='the-password',
 )
@@ -269,7 +269,7 @@ conf = openapi_client.Configuration(
         self.logger = {}
         """Logging Settings
         """
-        self.logger["package_logger"] = logging.getLogger("openapi_client")
+        self.logger["package_logger"] = logging.getLogger("ionos_reseller_api_v2_client")
         self.logger["urllib3_logger"] = logging.getLogger("urllib3")
         self.logger_format = '%(asctime)s %(levelname)s %(message)s'
         """Log format

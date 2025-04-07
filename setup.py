@@ -45,5 +45,5 @@ setup(
     long_description="""\
     API allowing resellers to create and manage contracts 
     """,  # noqa: E501
-    package_data={"openapi_client": ["py.typed"]},
+    package_data={"ionos_reseller_api_v2_client": ["py.typed"]},
 )

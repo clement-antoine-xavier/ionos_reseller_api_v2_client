@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.paginated_contract_response_resource import PaginatedContractResponseResource
+from ionos_reseller_api_v2_client.models.paginated_contract_response_resource import PaginatedContractResponseResource
 
 # TODO update the JSON string below
 json = "{}"

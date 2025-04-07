@@ -17,19 +17,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.error_message import ErrorMessage
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional, Union
+from ionos_reseller_api_v2_client.models.contract_response_resource import ContractResponseResource
+from ionos_reseller_api_v2_client.models.pagination_links import PaginationLinks
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ErrorResponse(BaseModel):
+class PaginatedContractResponseResource(BaseModel):
     """
-    ErrorResponse
+    PaginatedContractResponseResource
     """ # noqa: E501
-    http_status: Optional[StrictInt] = Field(default=None, description="HTTP status code of the operation.", alias="httpStatus")
-    messages: Optional[List[ErrorMessage]] = None
-    __properties: ClassVar[List[str]] = ["httpStatus", "messages"]
+    items: Optional[List[ContractResponseResource]] = Field(default=None, description="Array of items in the collection.")
+    offset: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The offset (if specified in the request).")
+    limit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The limit (if specified in the request).")
+    links: Optional[PaginationLinks] = Field(default=None, alias="_links")
+    __properties: ClassVar[List[str]] = ["items", "offset", "limit", "_links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +52,7 @@ class ErrorResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ErrorResponse from a JSON string"""
+        """Create an instance of PaginatedContractResponseResource from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -64,7 +67,7 @@ class ErrorResponse(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "http_status",
+            "items",
         ])
 
         _dict = self.model_dump(
@@ -72,18 +75,21 @@ class ErrorResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in messages (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
-        if self.messages:
-            for _item_messages in self.messages:
-                if _item_messages:
-                    _items.append(_item_messages.to_dict())
-            _dict['messages'] = _items
+        if self.items:
+            for _item_items in self.items:
+                if _item_items:
+                    _items.append(_item_items.to_dict())
+            _dict['items'] = _items
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['_links'] = self.links.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ErrorResponse from a dict"""
+        """Create an instance of PaginatedContractResponseResource from a dict"""
         if obj is None:
             return None
 
@@ -91,8 +97,10 @@ class ErrorResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "httpStatus": obj.get("httpStatus"),
-            "messages": [ErrorMessage.from_dict(_item) for _item in obj["messages"]] if obj.get("messages") is not None else None
+            "items": [ContractResponseResource.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
+            "offset": obj.get("offset"),
+            "limit": obj.get("limit"),
+            "_links": PaginationLinks.from_dict(obj["_links"]) if obj.get("_links") is not None else None
         })
         return _obj
 

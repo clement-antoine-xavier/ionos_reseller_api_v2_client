@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.paginated_contract_response_resource import PaginatedContractResponseResource
+from ionos_reseller_api_v2_client.models.paginated_contract_response_resource import PaginatedContractResponseResource
 
 class TestPaginatedContractResponseResource(unittest.TestCase):
     """PaginatedContractResponseResource unit test stubs"""
@@ -36,13 +36,13 @@ class TestPaginatedContractResponseResource(unittest.TestCase):
         if include_optional:
             return PaginatedContractResponseResource(
                 items = [
-                    openapi_client.models.contract_response_resource.ContractResponseResource(
+                    ionos_reseller_api_v2_client.models.contract_response_resource.ContractResponseResource(
                         id = '15514', 
                         href = 'https://api.ionos.com/reseller/v2/contract/15514', 
                         name = '', 
                         reseller_reference = '', 
                         status = '', 
-                        resource_limits = openapi_client.models.resource_limits.ResourceLimits(
+                        resource_limits = ionos_reseller_api_v2_client.models.resource_limits.ResourceLimits(
                             ram_server_max = 56, 
                             cpu_server_max = 56, 
                             hdd_volume_max_size = 56, 
@@ -55,7 +55,7 @@ class TestPaginatedContractResponseResource(unittest.TestCase):
                     ],
                 offset = 0,
                 limit = 1000,
-                links = openapi_client.models.pagination_links.PaginationLinks(
+                links = ionos_reseller_api_v2_client.models.pagination_links.PaginationLinks(
                     prev = '<PREVIOUS-PAGE-URI>', 
                     self = '<THIS-PAGE-URI>', 
                     next = '<NEXT-PAGE-URI>', )

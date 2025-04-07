@@ -17,22 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from openapi_client.models.contract_response_resource import ContractResponseResource
-from openapi_client.models.pagination_links import PaginationLinks
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from ionos_reseller_api_v2_client.models.resource_limits import ResourceLimits
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PaginatedContractResponseResource(BaseModel):
+class ContractRequestResource(BaseModel):
     """
-    PaginatedContractResponseResource
+    ContractRequestResource
     """ # noqa: E501
-    items: Optional[List[ContractResponseResource]] = Field(default=None, description="Array of items in the collection.")
-    offset: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The offset (if specified in the request).")
-    limit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The limit (if specified in the request).")
-    links: Optional[PaginationLinks] = Field(default=None, alias="_links")
-    __properties: ClassVar[List[str]] = ["items", "offset", "limit", "_links"]
+    name: StrictStr = Field(description="name of the contract")
+    reseller_reference: Optional[StrictStr] = Field(default=None, description="reseller reference of the contract", alias="resellerReference")
+    resource_limits: ResourceLimits = Field(alias="resourceLimits")
+    __properties: ClassVar[List[str]] = ["name", "resellerReference", "resourceLimits"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +50,7 @@ class PaginatedContractResponseResource(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PaginatedContractResponseResource from a JSON string"""
+        """Create an instance of ContractRequestResource from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -64,10 +62,8 @@ class PaginatedContractResponseResource(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "items",
         ])
 
         _dict = self.model_dump(
@@ -75,21 +71,14 @@ class PaginatedContractResponseResource(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
-        _items = []
-        if self.items:
-            for _item_items in self.items:
-                if _item_items:
-                    _items.append(_item_items.to_dict())
-            _dict['items'] = _items
-        # override the default output from pydantic by calling `to_dict()` of links
-        if self.links:
-            _dict['_links'] = self.links.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of resource_limits
+        if self.resource_limits:
+            _dict['resourceLimits'] = self.resource_limits.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PaginatedContractResponseResource from a dict"""
+        """Create an instance of ContractRequestResource from a dict"""
         if obj is None:
             return None
 
@@ -97,10 +86,9 @@ class PaginatedContractResponseResource(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "items": [ContractResponseResource.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
-            "offset": obj.get("offset"),
-            "limit": obj.get("limit"),
-            "_links": PaginationLinks.from_dict(obj["_links"]) if obj.get("_links") is not None else None
+            "name": obj.get("name"),
+            "resellerReference": obj.get("resellerReference"),
+            "resourceLimits": ResourceLimits.from_dict(obj["resourceLimits"]) if obj.get("resourceLimits") is not None else None
         })
         return _obj
 

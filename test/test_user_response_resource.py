@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.user_response_resource import UserResponseResource
+from ionos_reseller_api_v2_client.models.user_response_resource import UserResponseResource
 
 class TestUserResponseResource(unittest.TestCase):
     """UserResponseResource unit test stubs"""

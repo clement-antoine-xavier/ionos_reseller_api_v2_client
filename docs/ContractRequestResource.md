@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.contract_request_resource import ContractRequestResource
+from ionos_reseller_api_v2_client.models.contract_request_resource import ContractRequestResource
 
 # TODO update the JSON string below
 json = "{}"

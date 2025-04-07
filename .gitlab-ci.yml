@@ -12,7 +12,7 @@ stages:
   script:
    - pip install -r requirements.txt
    - pip install -r test-requirements.txt
-   - pytest --cov=openapi_client
+   - pytest --cov=ionos_reseller_api_v2_client
 
 pytest-3.8:
   extends: .pytest

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.user_request_resource import UserRequestResource
+from ionos_reseller_api_v2_client.models.user_request_resource import UserRequestResource
 
 # TODO update the JSON string below
 json = "{}"

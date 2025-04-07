@@ -19,18 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.resource_limits import ResourceLimits
+from ionos_reseller_api_v2_client.models.resource_limits import ResourceLimits
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ContractRequestResource(BaseModel):
+class ContractResponseResource(BaseModel):
     """
-    ContractRequestResource
+    ContractResponseResource
     """ # noqa: E501
-    name: StrictStr = Field(description="name of the contract")
+    id: Optional[StrictStr] = Field(default=None, description="The resource's unique identifier")
+    href: Optional[StrictStr] = Field(default=None, description="URI for specific Contract")
+    name: Optional[StrictStr] = Field(default=None, description="name of the contract")
     reseller_reference: Optional[StrictStr] = Field(default=None, description="reseller reference of the contract", alias="resellerReference")
-    resource_limits: ResourceLimits = Field(alias="resourceLimits")
-    __properties: ClassVar[List[str]] = ["name", "resellerReference", "resourceLimits"]
+    status: Optional[StrictStr] = Field(default=None, description="status of the contract")
+    resource_limits: Optional[ResourceLimits] = Field(default=None, alias="resourceLimits")
+    __properties: ClassVar[List[str]] = ["id", "href", "name", "resellerReference", "status", "resourceLimits"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +53,7 @@ class ContractRequestResource(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ContractRequestResource from a JSON string"""
+        """Create an instance of ContractResponseResource from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -62,8 +65,12 @@ class ContractRequestResource(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "id",
+            "href",
         ])
 
         _dict = self.model_dump(
@@ -78,7 +85,7 @@ class ContractRequestResource(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ContractRequestResource from a dict"""
+        """Create an instance of ContractResponseResource from a dict"""
         if obj is None:
             return None
 
@@ -86,8 +93,11 @@ class ContractRequestResource(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
+            "href": obj.get("href"),
             "name": obj.get("name"),
             "resellerReference": obj.get("resellerReference"),
+            "status": obj.get("status"),
             "resourceLimits": ResourceLimits.from_dict(obj["resourceLimits"]) if obj.get("resourceLimits") is not None else None
         })
         return _obj

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.resource_limits import ResourceLimits
+from ionos_reseller_api_v2_client.models.resource_limits import ResourceLimits
 
 class TestResourceLimits(unittest.TestCase):
     """ResourceLimits unit test stubs"""

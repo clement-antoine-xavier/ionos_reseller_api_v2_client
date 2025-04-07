@@ -1,4 +1,4 @@
-# openapi_client.AdminApi
+# ionos_reseller_api_v2_client.AdminApi
 
 All URIs are relative to */reseller/v2*
 
@@ -22,15 +22,15 @@ Create new admin user for contract
 * Api Key Authentication (TokenAuthentication):
 
 ```python
-import openapi_client
-from openapi_client.models.user_request_resource import UserRequestResource
-from openapi_client.models.user_response_resource import UserResponseResource
-from openapi_client.rest import ApiException
+import ionos_reseller_api_v2_client
+from ionos_reseller_api_v2_client.models.user_request_resource import UserRequestResource
+from ionos_reseller_api_v2_client.models.user_response_resource import UserResponseResource
+from ionos_reseller_api_v2_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to /reseller/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = ionos_reseller_api_v2_client.Configuration(
     host = "/reseller/v2"
 )
 
@@ -40,7 +40,7 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: BasicAuthentication
-configuration = openapi_client.Configuration(
+configuration = ionos_reseller_api_v2_client.Configuration(
     username = os.environ["USERNAME"],
     password = os.environ["PASSWORD"]
 )
@@ -52,11 +52,11 @@ configuration.api_key['TokenAuthentication'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['TokenAuthentication'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with ionos_reseller_api_v2_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AdminApi(api_client)
+    api_instance = ionos_reseller_api_v2_client.AdminApi(api_client)
     contract_number = 56 # int | 
-    body = openapi_client.UserRequestResource() # UserRequestResource |  (optional)
+    body = ionos_reseller_api_v2_client.UserRequestResource() # UserRequestResource |  (optional)
 
     try:
         # Create new admin user for contract
@@ -112,13 +112,13 @@ This method call will remove admin user from the contract. This is a highly dest
 * Api Key Authentication (TokenAuthentication):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import ionos_reseller_api_v2_client
+from ionos_reseller_api_v2_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to /reseller/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = ionos_reseller_api_v2_client.Configuration(
     host = "/reseller/v2"
 )
 
@@ -128,7 +128,7 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: BasicAuthentication
-configuration = openapi_client.Configuration(
+configuration = ionos_reseller_api_v2_client.Configuration(
     username = os.environ["USERNAME"],
     password = os.environ["PASSWORD"]
 )
@@ -140,9 +140,9 @@ configuration.api_key['TokenAuthentication'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['TokenAuthentication'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with ionos_reseller_api_v2_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AdminApi(api_client)
+    api_instance = ionos_reseller_api_v2_client.AdminApi(api_client)
     contract_number = 56 # int | 
     admin_id = 56 # int | 
 
@@ -198,14 +198,14 @@ Find admin by ID
 * Api Key Authentication (TokenAuthentication):
 
 ```python
-import openapi_client
-from openapi_client.models.user_response_resource import UserResponseResource
-from openapi_client.rest import ApiException
+import ionos_reseller_api_v2_client
+from ionos_reseller_api_v2_client.models.user_response_resource import UserResponseResource
+from ionos_reseller_api_v2_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to /reseller/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = ionos_reseller_api_v2_client.Configuration(
     host = "/reseller/v2"
 )
 
@@ -215,7 +215,7 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: BasicAuthentication
-configuration = openapi_client.Configuration(
+configuration = ionos_reseller_api_v2_client.Configuration(
     username = os.environ["USERNAME"],
     password = os.environ["PASSWORD"]
 )
@@ -227,9 +227,9 @@ configuration.api_key['TokenAuthentication'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['TokenAuthentication'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with ionos_reseller_api_v2_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AdminApi(api_client)
+    api_instance = ionos_reseller_api_v2_client.AdminApi(api_client)
     contract_number = 56 # int | 
     admin_id = 56 # int | 
 
@@ -287,14 +287,14 @@ You can retrieve a complete list of admin users of the contract
 * Api Key Authentication (TokenAuthentication):
 
 ```python
-import openapi_client
-from openapi_client.models.user_response_resource import UserResponseResource
-from openapi_client.rest import ApiException
+import ionos_reseller_api_v2_client
+from ionos_reseller_api_v2_client.models.user_response_resource import UserResponseResource
+from ionos_reseller_api_v2_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to /reseller/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = ionos_reseller_api_v2_client.Configuration(
     host = "/reseller/v2"
 )
 
@@ -304,7 +304,7 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: BasicAuthentication
-configuration = openapi_client.Configuration(
+configuration = ionos_reseller_api_v2_client.Configuration(
     username = os.environ["USERNAME"],
     password = os.environ["PASSWORD"]
 )
@@ -316,9 +316,9 @@ configuration.api_key['TokenAuthentication'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['TokenAuthentication'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with ionos_reseller_api_v2_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AdminApi(api_client)
+    api_instance = ionos_reseller_api_v2_client.AdminApi(api_client)
     contract_number = 56 # int | 
 
     try:
@@ -374,15 +374,15 @@ You can use this method to partially update admin user properties (firstName and
 * Api Key Authentication (TokenAuthentication):
 
 ```python
-import openapi_client
-from openapi_client.models.user_response_resource import UserResponseResource
-from openapi_client.models.user_update_request_resource import UserUpdateRequestResource
-from openapi_client.rest import ApiException
+import ionos_reseller_api_v2_client
+from ionos_reseller_api_v2_client.models.user_response_resource import UserResponseResource
+from ionos_reseller_api_v2_client.models.user_update_request_resource import UserUpdateRequestResource
+from ionos_reseller_api_v2_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to /reseller/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = ionos_reseller_api_v2_client.Configuration(
     host = "/reseller/v2"
 )
 
@@ -392,7 +392,7 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: BasicAuthentication
-configuration = openapi_client.Configuration(
+configuration = ionos_reseller_api_v2_client.Configuration(
     username = os.environ["USERNAME"],
     password = os.environ["PASSWORD"]
 )
@@ -404,12 +404,12 @@ configuration.api_key['TokenAuthentication'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['TokenAuthentication'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with ionos_reseller_api_v2_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AdminApi(api_client)
+    api_instance = ionos_reseller_api_v2_client.AdminApi(api_client)
     contract_number = 56 # int | 
     admin_id = 56 # int | 
-    body = openapi_client.UserUpdateRequestResource() # UserUpdateRequestResource |  (optional)
+    body = ionos_reseller_api_v2_client.UserUpdateRequestResource() # UserUpdateRequestResource |  (optional)
 
     try:
         # Partially update admin user
